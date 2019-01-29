@@ -1,0 +1,9 @@
+Which of the following require saving all the values from standard input, and which could be implemented as a filter using only a fixed number of variables? For each, the input comes from standard input and consists of n floats between 0 and 1.
+- Write the maximum and minimum float -filter
+- Write the kth smallest float -save variables
+- Write the sum of the squares of the floats -filter
+- Write the average of the n floats -filter
+- Write the percentage of floats greater than the average -filter
+- Write the n floats in increasing order -save variables
+- Write the n floats in random order -save variables
+
