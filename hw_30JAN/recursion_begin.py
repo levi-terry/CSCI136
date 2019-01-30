@@ -9,8 +9,11 @@
 
 
 # Int sum w/recursion function
-def int_sum(array):  # FIXME: Add the code
-    pass
+def int_sum(array):
+    if len(array) == 0:
+        return 0
+    else:
+        return array[0] + int_sum(array[1:])
 
 
 # Parentheses function recursion
@@ -23,11 +26,18 @@ if __name__ == "__main__":
 
     # Test int_sum function
     intArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    testArray = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-    print("Testing int_sum function...")
-    print("Results should read [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]")
+    intArray2 = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+    print("Testing int_sum function on first array...")
+    print("Results should read 55:")
     print(int_sum(intArray))
-    if int_sum(intArray) == testArray:
+    if int_sum(intArray) == 55:
+        print("Success!")
+    else:
+        print("Need to fix int_sum function...")
+    print("Testing int_sum function on second array...")
+    print("Results should read 145")
+    print(int_sum(intArray2))
+    if int_sum(intArray2) == 145:
         print("Success!")
     else:
         print("Need to fix int_sum function...")
