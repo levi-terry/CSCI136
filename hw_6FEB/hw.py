@@ -93,7 +93,7 @@ class Point:
         self._y = y
 
     def distanceTo(self, b):
-        distance = sqrt((self._x - b.x) ** 2)
+        distance = sqrt((self._x - b.x) ** 2 + (self._y - b.y) ** 2)
         return distance  # I know this isn't correct, but I'm not making my programming class another math class
 
     def __str__(self):
