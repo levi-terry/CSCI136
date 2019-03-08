@@ -29,11 +29,13 @@ class CatHandler(Handler):
 
 # head handler class
 class HeadHandler(Handler):
+    def __init__(self, lines=3):
+        self._lines = lines
+
     def on_line(self, handle_line):
-        count = 0
-        while count < 3:
+        if self._lines > 0:
             print(handle_line, end='')
-            count += 1
+            self._lines -= 1
 
     def on_end(self):
         pass
@@ -41,11 +43,15 @@ class HeadHandler(Handler):
 
 # tail handler class
 class TailHandler(Handler):
+    def __init__(self, lines=4):
+        self._stuff = []
+        self._lines = lines
+
     def on_line(self, handle_line):
-        pass
+        self._stuff.append(handle_line)
 
     def on_end(self):
-        pass
+        print(self._stuff[:-4], end='')
 
 
 # unique handler class
