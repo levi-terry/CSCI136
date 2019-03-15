@@ -65,11 +65,16 @@ class UniqueHandler(Handler):
 
 
 class SortHandler(Handler):
+    def __init__(self):
+        self._stuff = []
+
     def on_line(self, handle_line):
-        pass
+        self._stuff.append(handle_line)
 
     def on_end(self):
-        pass
+        self._stuff.sort()
+        for i in self._stuff:
+            print(i, end='')
 
 
 class CountHandler(Handler):
@@ -90,6 +95,8 @@ if __name__ == "__main__":
         handler = TailHandler()
     elif sys.argv[1] == "unique":
         handler = UniqueHandler()
+    elif sys.argv[1] == "sort":
+        handler = SortHandler()
 
     # Actual Operations
     for line in sys.stdin:
