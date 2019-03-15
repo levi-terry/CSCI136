@@ -64,6 +64,22 @@ class UniqueHandler(Handler):
         pass
 
 
+class SortHandler(Handler):
+    def on_line(self, handle_line):
+        pass
+
+    def on_end(self):
+        pass
+
+
+class CountHandler(Handler):
+    def on_line(self, handle_line):
+        pass
+
+    def on_end(self):
+        pass
+
+
 if __name__ == "__main__":
     # Determine the command
     if sys.argv[1] == "cat":
