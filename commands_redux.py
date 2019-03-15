@@ -51,7 +51,8 @@ class TailHandler(Handler):
         self._stuff.append(handle_line)
 
     def on_end(self):
-        print(self._stuff[:-4], end='')
+        for i in self._stuff[-4:]:
+            print(i, end='')
 
 
 # unique handler class
