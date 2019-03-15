@@ -57,11 +57,15 @@ class TailHandler(Handler):
 
 # unique handler class
 class UniqueHandler(Handler):
+    def __init__(self):
+        self._stuff = set()
+
     def on_line(self, handle_line):
-        pass
+        self._stuff.add(handle_line)
 
     def on_end(self):
-        pass
+        for i in self._stuff:
+            print(i, end='')
 
 
 class SortHandler(Handler):
@@ -78,11 +82,21 @@ class SortHandler(Handler):
 
 
 class CountHandler(Handler):
+    def __init__(self):
+        self._stuff = {}
+
     def on_line(self, handle_line):
-        pass
+        if handle_line in self._stuff:
+            self._stuff[handle_line] += 1
+        else:
+            self._stuff[handle_line] = 1
 
     def on_end(self):
-        pass
+        for i in self._stuff:
+            print(i)
+            print("\nCount: ")
+            print(self._stuff[i])
+            print("\n")
 
 
 if __name__ == "__main__":
@@ -97,6 +111,8 @@ if __name__ == "__main__":
         handler = UniqueHandler()
     elif sys.argv[1] == "sort":
         handler = SortHandler()
+    elif sys.argv[1] == "count":
+        handler = CountHandler()
 
     # Actual Operations
     for line in sys.stdin:
